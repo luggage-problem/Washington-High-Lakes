@@ -8,6 +8,8 @@ app = Flask(__name__)
 def lake_index():
 	with sqlite3.connect('highlakes.db') as con:
 		db = con.cursor()
+
+		# possible query params
 		name = request.args.get('name')
 		overabundant = request.args.get('overabundant')
 		county = request.args.get('county')
@@ -15,7 +17,7 @@ def lake_index():
 		query = "SELECT id, name FROM lakes WHERE 1"
 		params = []
 		if overabundant:
-			query += " AND overabundant=?"
+			query += " AND overabundant = ?"
 			params.append(overabundant)
 		if name:
 			query += " AND name LIKE ?"
@@ -47,6 +49,13 @@ def lakes(lake_id):
 			'overabundant' : result[0][8],
 			'fish_species': [f[0] for f in fishes]
 		})
+
+# enable CORS (for now)
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
 
 if __name__ == '__main__':
 	app.run(debug=True)
