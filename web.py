@@ -4,7 +4,7 @@ from whitenoise import WhiteNoise
 import sqlite3
 
 app = Flask(__name__)
-app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/')
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/public/')
 
 @app.route('/api/lakes/')
 def lake_index():
