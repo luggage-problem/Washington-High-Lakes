@@ -1,8 +1,10 @@
 
 from flask import Flask, jsonify, request, abort
+from whitenoise import WhiteNoise
 import sqlite3
 
 app = Flask(__name__)
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/')
 
 @app.route('/api/lakes/')
 def lake_index():
@@ -56,6 +58,3 @@ def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
     return response
-
-if __name__ == '__main__':
-	app.run(debug=True)
