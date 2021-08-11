@@ -3,8 +3,8 @@ from flask import Flask, jsonify, request, abort
 from whitenoise import WhiteNoise
 import sqlite3
 
-app = Flask(__name__, static_folder='./app/build/public')
-app.wsgi_app = WhiteNoise(app.wsgi_app, root='./app/build/public')
+app = Flask(__name__, static_folder='./app/build')
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='./app/build')
 
 @app.route('/api/lakes/')
 def lake_index():
