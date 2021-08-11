@@ -10,6 +10,9 @@ dataclasses==0.8; python_version >= "3.6" and python_version < "3.7" \
 flask==2.0.1; python_version >= "3.6" \
     --hash=sha256:a6209ca15eb63fc9385f38e452704113d679511d9574d09b2cf9183ae7d20dc9 \
     --hash=sha256:1c4c257b1892aec1398784c63791cbaa43062f1f7aeb555c4da961b20ee68f55
+gunicorn==20.1.0; python_version >= "3.5" \
+    --hash=sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e \
+    --hash=sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8
 importlib-metadata==4.6.3; python_version < "3.8" and python_version >= "3.6" \
     --hash=sha256:51c6635429c77cf1ae634c997ff9e53ca3438b495f10a55ba28594dd69764a8b \
     --hash=sha256:0645585859e9a6689c523927a5032f2ba5919f1f7d0e84bd4533312320de1ff9
