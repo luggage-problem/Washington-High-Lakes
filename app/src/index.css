@@ -10,3 +10,23 @@ body {
 .mapContainer {
 	height: 500px;
 }
+
+.List {
+	border-collapse: collapse;
+}
+
+table.List {
+	margin: 8px;
+}
+
+table.List thead, table.List td {
+	border: 1px solid #ccc;
+}
+
+thead {
+	font-weight: bold;
+}
+
+td {
+	padding: 5px;
+}

@@ -8,13 +8,26 @@ function List({ lakes, isLoaded }) {
 		);
 	} else {
 		return (
-			<div className="List">
-				<ul>
-				{lakes.map((lake, index) => (
-					<li key={lake.id}>{lake.name}</li>
-				))}
-				</ul>
-			</div>
+			<table className="List">
+				<thead>
+					<tr>
+						<td>Name</td>
+						<td>County</td>
+						<td>Elevation</td>
+						<td>Area</td>
+					</tr>
+				</thead>
+				<tbody>
+					{lakes.map((lake, index) => (
+						<tr key={lake.id}>
+							<td>{lake.name}</td>
+							<td>{lake.county}</td>
+							<td>{lake.elevation} ft.</td>
+							<td>{lake.area} acres</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 		);
 	}
 }

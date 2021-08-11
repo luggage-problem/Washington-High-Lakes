@@ -59,7 +59,7 @@ function ListContainer() {
 			    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			  />
 			  {lakes.map((lake) => 
-				  <Marker position={[lake.lat, lake.long]}>
+				  <Marker position={[lake.lat, lake.long]} key={lake.id}>
 				    <Popup>
 				      {lake.name}
 				    </Popup>
