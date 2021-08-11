@@ -14,7 +14,7 @@ def lake_index():
 		overabundant = request.args.get('overabundant')
 		county = request.args.get('county')
 
-		query = "SELECT id, name FROM lakes WHERE 1"
+		query = "SELECT id, name, lat, long FROM lakes WHERE 1"
 		params = []
 		if overabundant:
 			query += " AND overabundant = ?"
@@ -27,7 +27,7 @@ def lake_index():
 			params.append(county)
 
 		results = db.execute(query, params).fetchall()
-		return jsonify({'results' : [{'id' : lake[0], 'name' : lake[1]} for lake in results]})
+		return jsonify({'results' : [{'id' : lake[0], 'name' : lake[1], 'lat': lake[2], 'long': lake[3]} for lake in results]})
 
 @app.route('/api/lakes/<lake_id>')
 def lakes(lake_id):
