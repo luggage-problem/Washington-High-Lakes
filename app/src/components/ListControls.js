@@ -1,12 +1,15 @@
 
-function ListControls({ setSearchText, setSearchCounty, setSearchOverabundant }) {
+function ListControls({ searchText, setSearchText, setSearchCounty, setSearchOverabundant, setUserMapControl }) {
 	return (
 		<div className="ListControls">
 			<table>
 				<tbody>
+				 	<tr>
+				 		<td><button onClick={() => setUserMapControl(false)}>Reset Map Controls</button></td>
+				 	</tr>
 					<tr>
 						<td>Search by name:</td>
-						<td><input type="text" onChange={e => setSearchText(e.target.value)} /></td>
+						<td><input type="text" onChange={e => setSearchText(e.target.value)} value={searchText} /></td>
 				 	</tr>
 				 	<tr>
 				 		<td>County:</td>
