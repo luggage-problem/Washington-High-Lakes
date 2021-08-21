@@ -39,6 +39,15 @@ def lake_index():
 			'long' : result[7],
 			'overabundant' : result[8]} for result in results]})
 
+@app.route('/api/fish-species')
+def fish_species():
+	with sqlite3.connect('highlakes.db') as con:
+		db = con.cursor()
+		result = db.execute("SELECT DISTINCT species FROM fishes").fetchall()
+		return jsonify({
+			'species' : [fish[0] for fish in result]
+		})
+
 @app.route('/api/lakes/<lake_id>')
 def lakes(lake_id):
 	with sqlite3.connect('highlakes.db') as con:
